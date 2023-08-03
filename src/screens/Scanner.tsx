@@ -1,9 +1,15 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
-const Scanner = () => {
+//imports para navegação
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../App';
+
+// definindo o tipo de navegação
+type ScannerProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
+const Scanner = ({navigation}: ScannerProps) => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>Scanner</Text>
     </View>
   );
@@ -11,4 +17,11 @@ const Scanner = () => {
 
 export default Scanner;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+  },
+});
