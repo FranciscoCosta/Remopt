@@ -11,7 +11,7 @@ import {Home, Scanner, PokemonsDetails} from './screens';
 export type RootStackParamList = {
   Home: undefined;
   Scanner: undefined;
-  PokemonsDetails: {url: string};
+  PokemonsDetails: {pokemonId: string};
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();

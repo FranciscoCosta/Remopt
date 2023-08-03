@@ -9,11 +9,12 @@ import {RootStackParamList} from '../App';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 
 // definindo o tipo de navegação
-type ScannerProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
+type ScannerProps = NativeStackScreenProps<RootStackParamList, 'Scanner'>;
+
 const Scanner = ({navigation}: ScannerProps) => {
   const handleRead = (data: string) => {
     navigation.navigate('PokemonsDetails', {
-      url: data,
+      pokemonId: data,
     });
   };
 
