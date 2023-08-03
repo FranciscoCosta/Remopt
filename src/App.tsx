@@ -1,16 +1,49 @@
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {SafeAreaView, Text} from 'react-native';
 
-//Navigation imports
+//Imports para a navgação
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/native-stack';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
+//Imports das telas
+import {Home, Scanner, PokemonsDetails} from './screens';
+
+//Criação da tipagem para a navegação
+export type RootStackParamList = {
+  Home: undefined;
+  Scanner: undefined;
+  PokemonsDetails: {id: number; name: string; image: string; types: string[]};
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function App(): JSX.Element {
   return (
-    <SafeAreaView>
-      <Text>Francisco Costa</Text>
-    </SafeAreaView>
+    // Cria a navegação entre as telas
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            title: 'Pokemon RemOpt',
+          }}
+        />
+        <Stack.Screen
+          name="Scanner"
+          component={Scanner}
+          options={{
+            title: 'Pokemon Scanner',
+          }}
+        />
+        <Stack.Screen
+          name="PokemonsDetails"
+          component={PokemonsDetails}
+          options={{
+            title: 'Pokemons Details',
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
