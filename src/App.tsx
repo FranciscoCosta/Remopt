@@ -20,28 +20,14 @@ function App(): JSX.Element {
   return (
     // Cria a navegação entre as telas
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen
-          name="Home"
-          component={Home}
-          options={{
-            title: 'Pokemon RemOpt',
-          }}
-        />
-        <Stack.Screen
-          name="Scanner"
-          component={Scanner}
-          options={{
-            title: 'Pokemon Scanner',
-          }}
-        />
-        <Stack.Screen
-          name="PokemonsDetails"
-          component={PokemonsDetails}
-          options={{
-            title: 'Pokemons Details',
-          }}
-        />
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          headerShown: false,
+        }}>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Scanner" component={Scanner} />
+        <Stack.Screen name="PokemonsDetails" component={PokemonsDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );
